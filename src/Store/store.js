@@ -1,14 +1,10 @@
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
-import rootReducer from '../reducers';
+import { createStore, compose } from 'redux';
+import rootreducer from '../Reducers/reducers';
 
-// ESTADO GLOBAL
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(
-    applyMiddleware(thunk),
-  ),
-);
+const extension = window.devToolsExtension() || ((f) => f);
+const store = createStore(rootreducer, compose(extension));
 
+// Estado global
+// createStore concentra tudo ( store, actions..)
+// rootreducer recebe os reducers
 export default store;

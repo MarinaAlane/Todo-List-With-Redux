@@ -1,14 +1,13 @@
+// src/App.js
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './Store/store';
+import ListTodo from './ListTodo';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>
-          ToDo List
-        </h1>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <Provider store={store}>
+    <ListTodo />   
+  </Provider>
+);
 
 export default App;
